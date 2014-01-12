@@ -1,33 +1,18 @@
 package com.landon.fibonacci;
 
+import com.landon.fibonacci.utils.FibonacciUtils;
+
 public class Fibonacci1 {
     public static void main(String[] args) {
         try {
             if (args.length == 1) {
-                printArray(getFibonacci(Integer.parseInt(args[0])));
+                FibonacciUtils.printArray(getFibonacci(Integer.parseInt(args[0])));
             } else {
                 System.err.println("Please enter single integer value.");
             }
         } catch (NumberFormatException nfe) { // Non-integer argument
             System.err.println(nfe + "you can only pass integer as an argument.");
         }
-    }
-
-    // Prints array in a form [ element 1, element 2, ... ]
-    public static void printArray(int[] list) {
-        System.out.print("[");
-
-        if (list.length == 0) {
-            System.out.print("");
-        } else if (list.length == 1) {
-            System.out.print(list[0]);
-        } else {
-            for (int i = 0; i <= list.length - 2; i++) {
-                System.out.print(list[i] + ", ");
-            }
-            System.out.print(list[list.length - 1]);
-        }
-        System.out.println("]");
     }
 
     // Returns x-sized Fibonacci array.
