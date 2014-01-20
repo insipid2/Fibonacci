@@ -2,7 +2,7 @@ package com.landon.fibonacci;
 
 import com.landon.fibonacci.utils.FibonacciUtils;
 
-public class Fibonacci1 {
+public class IterativeFibonacci {
     public static void main(String[] args) {
         try {
             if (args.length == 1) {
@@ -17,7 +17,7 @@ public class Fibonacci1 {
 
     // Returns x-sized Fibonacci array.
     // Prompts user with a warning for size greater than 47.
-    public static int[] getFibonacci(int x) {
+    private static int[] getFibonacci(int x) {
         if (x < 0) {
             throw new IllegalArgumentException("Negative size is not allowed.");
         } else if (x > 47) {
