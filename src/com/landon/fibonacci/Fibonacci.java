@@ -22,7 +22,7 @@ public class Fibonacci {
         }
     }
 
-    private static int[] getFibonacciArray(int n) {
+    private static int[] getFibonacciArray(int n) { // TEST DUR?
         int[] target = new int[n];
 
         if (n == 0) return target;
