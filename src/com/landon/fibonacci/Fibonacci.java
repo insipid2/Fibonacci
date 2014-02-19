@@ -7,26 +7,46 @@ import com.landon.fibonacci.utils.FibonacciUtils;
 public class Fibonacci {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        boolean promptAgain = false;
+        boolean promptAgain = true;
 
         Introduction();
 
-        try {
-            if (args.length == 1) {
-                int num = Integer.parseInt(args[0]);
+        while (promptAgain) {
+            int num = getNumber(console);
 
-                if (FibonacciUtils.isValidInt(num)) {
-                    FibonacciUtils.printArray(getFibonacciArray(num));
-                } else {
-                    System.out.println("Your input is either less than 0 or greater than 46. "
-                            + "Please pick a number between 1 to 46.");
-                }
+            if (FibonacciUtils.isValidInt(num)) {
+                FibonacciUtils.printArray(getFibonacciArray(num));
             } else {
-                System.out.println("Please enter single integer value.");
+                System.out.println("Your input is either less than 0 or greater than 46.");
+                System.out.println("Please pick a number between 1 to 46.");
+                continue;
             }
-        } catch (NumberFormatException nfe) { // Non-integer argument
-            System.out.println(nfe + "you can only pass integer as an argument.");
+
+            System.out.println("Would you like to run this program again? [Y/n] ");
+            promptAgain = console.next().equals("Y");
         }
+
+        console.close();
+        System.exit(0);
+    }
+
+    private static void Introduction() {
+        System.out.println("This program takes integer (from 0 to 46)");
+        System.out.println("and prints the Fibonacci sequence up to the");
+        System.out.println("given integer.");
+        System.out.println();
+    }
+
+    private static int getNumber(Scanner console) {
+        String prompt = "Please enter the number: ";
+        System.out.print(prompt);
+
+        while (!console.hasNextInt()) {
+            console.next();
+            System.out.println("Not an integer; please try again.");
+            System.out.println(prompt);
+        }
+        return console.nextInt();
     }
 
     private static int[] getFibonacciArray(int n) {
@@ -40,13 +60,6 @@ public class Fibonacci {
             }
         }
         return target;
-    }
-
-    private static void Introduction() {
-        System.out.println("This program takes integer (from 0 to 46)");
-        System.out.println("and prints the Fibonacci sequence up to the");
-        System.out.println("given integer.");
-        System.out.println();
     }
 
     // More mathematically elegant, non-optimal solution
