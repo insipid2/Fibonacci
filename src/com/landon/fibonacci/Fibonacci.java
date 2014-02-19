@@ -8,10 +8,10 @@ public class Fibonacci {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
         boolean promptAgain = false;
-        
+
         Introduction();
-    	
-    	try {
+
+        try {
             if (args.length == 1) {
                 int num = Integer.parseInt(args[0]);
 
@@ -43,12 +43,12 @@ public class Fibonacci {
     }
 
     private static void Introduction() {
-    	System.out.println("This program takes integer (from 0 to 46)");
-    	System.out.println("and prints the Fibonacci sequence up to the");
-    	System.out.println("given integer.");
-    	System.out.println();
+        System.out.println("This program takes integer (from 0 to 46)");
+        System.out.println("and prints the Fibonacci sequence up to the");
+        System.out.println("given integer.");
+        System.out.println();
     }
-    
+
     // More mathematically elegant, non-optimal solution
     /*private static int recursiveFib(int n) {
         return (n < 2) ? n : recursiveFib(n - 1) + recursiveFib(n - 2);
